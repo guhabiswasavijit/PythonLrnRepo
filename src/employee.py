@@ -1,3 +1,5 @@
+import numpy as np
+
 class Employees(list):
     def search(self, name) -> list:
         matching_employee = []
@@ -18,11 +20,10 @@ class Employee:
         self.hireDate = hireDate
         self.jobId = jobId
         self.salary = salary
-        self.commisionPct = commisionPct
+        self.commisionPct = 0 if np.isnan(commisionPct) else commisionPct
         self.salary = salary
-        self.managerId = managerId
-        self.departmentId = departmentId
-        self.commisionPct = commisionPct
+        self.managerId = 0 if np.isnan(managerId) else managerId
+        self.departmentId = 0 if np.isnan(departmentId) else departmentId
         Employee.all_employee.append(self)
     @classmethod
     def getEmployee() -> Employees:
